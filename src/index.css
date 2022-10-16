@@ -1,0 +1,55 @@
+@font-face {
+  font-family: "Quicksand";
+  src: url("/Quicksand-Light.woff2") format("woff2"),
+    url("/Quicksand-Light.woff") format("woff");
+  font-weight: 300;
+  font-style: normal;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* reset & common styles */
+body,
+ul,
+h1,
+h2,
+h3,
+p,
+button,
+a,
+div {
+  margin: 0;
+  padding: 0;
+  font-family: "Quicksand";
+  letter-spacing: 2px;
+  list-style-type: none;
+  text-decoration: none;
+}
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  color: white;
+  /* background-image: radial-gradient(
+      at 5% 1%,
+      rgb(167, 243, 208) 0,
+      transparent 42%
+    ),
+    radial-gradient(at 2% 85%, rgb(203, 213, 225) 0, transparent 100%),
+    radial-gradient(at 23% 35%, rgb(94, 234, 212) 0, transparent 38%),
+    radial-gradient(at 96% 29%, rgb(100, 116, 139) 0, transparent 80%),
+    radial-gradient(at 57% 10%, rgb(241, 245, 249) 0, transparent 38%),
+    radial-gradient(at 18% 94%, rgb(88, 28, 135) 0, transparent 42%); */
+  background-image: radial-gradient(
+    circle farthest-corner at 10% 20%,
+    rgba(14, 174, 87, 1) 0%,
+    rgba(12, 116, 117, 1) 90%
+  );
+}
