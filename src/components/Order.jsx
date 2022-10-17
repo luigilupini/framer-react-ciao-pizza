@@ -1,5 +1,5 @@
-import { motion } from "framer-motion";
 import React from "react";
+import { motion } from "framer-motion";
 
 /* # Orchestration: 
 By default, all animations will start simultaneously. But by using variants, we
@@ -16,9 +16,10 @@ Lastly we apply the `staggerChildren` prop to the parent so that it staggers the
 animation to all children elements.
 */
 const containerVariants = {
-  hidden: { x: "100vw" },
+  hidden: { x: "100vw", opacity: 0 },
   visible: {
     x: "0",
+    opacity: 1,
     transition: {
       type: "spring",
       // spring specific settings:
@@ -30,7 +31,9 @@ const containerVariants = {
       staggerChildren: 0.4,
     },
   },
+  exit: { x: "-100vw", transition: { ease: "easeInOut" } },
 };
+
 const childVariants = {
   hidden: { opacity: 0 },
   visible: { opacity: 1 },
@@ -43,6 +46,7 @@ const Order = ({ pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h2>Thank you for your order</h2>
       <motion.p variants={childVariants}>

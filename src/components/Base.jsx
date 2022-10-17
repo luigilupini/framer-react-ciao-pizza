@@ -25,11 +25,13 @@ parent, and their directly/enclosed children `motion` elements.
 You don't need to apply the `transition` prop to a motion element, its embedded.
 */
 const containerVariants = {
-  hidden: { x: "100vw" },
+  hidden: { x: "100vw", opacity: 0 },
   visible: {
-    x: "0",
-    transition: { type: "spring", delay: 0.5, stiffness: 50 },
+    x: 0,
+    opacity: 1,
+    transition: { type: "spring", delay: 0.5 },
   },
+  exit: { x: "-100vw", transition: { ease: "easeInOut" } },
 };
 const nextVariants = {
   hidden: { x: "-100vw" },
@@ -58,6 +60,7 @@ const Base = ({ addBase, pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h3>Step 1: Choose Your Base</h3>
       <ul>

@@ -4,11 +4,13 @@ import { Link } from "react-router-dom";
 import { motion } from "framer-motion";
 
 const containerVariants = {
-  hidden: { x: "100vw" },
+  hidden: { x: "100vw", opacity: 0 },
   visible: {
-    x: "0",
-    transition: { type: "spring", delay: 0.5, stiffness: 50 },
+    x: 0,
+    opacity: 1,
+    transition: { type: "spring", delay: 0.5 },
   },
+  exit: { x: "-100vw", transition: { ease: "easeInOut" } },
 };
 const buttonVariants = {
   hover: {
@@ -37,6 +39,7 @@ const Toppings = ({ addTopping, pizza }) => {
       variants={containerVariants}
       initial="hidden"
       animate="visible"
+      exit="exit"
     >
       <h3>Step 2: Choose Toppings</h3>
       <ul>
