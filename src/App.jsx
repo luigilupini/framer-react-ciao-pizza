@@ -71,7 +71,7 @@ function App() {
   return (
     <div>
       <Header />
-      <AnimatePresence>
+      <AnimatePresence exitBeforeEnter={true}>
         <Switch location={location} key={location.key}>
           <Route path="/" exact>
             <Home />
