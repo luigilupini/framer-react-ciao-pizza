@@ -30,6 +30,10 @@ div {
   text-decoration: none;
 }
 
+a {
+  color: white;
+}
+
 html,
 body {
   height: 100%;
@@ -56,7 +60,7 @@ body {
     hsl(360deg 68% 64%) 83%
   );
   /* Likely needed for animtation that overflow elements */
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 button {
@@ -99,7 +103,7 @@ header svg {
 /* home */
 .container {
   max-width: 300px;
-  margin: 100px auto 40px;
+  margin: 40px auto 40px;
 }
 .container h3 {
   padding-bottom: 10px;
@@ -109,6 +113,22 @@ header svg {
 .container li {
   padding: 10px;
   cursor: pointer;
+}
+
+/* lists  (Base, Toppings)*/
+/* ::before represents a styleable child pseudo-element immediately before
+the originating element’s actual content. */
+li span.active {
+  font-weight: bold;
+  /* color: red;  */ /* toggle for testing */
+}
+li span.active::before {
+  content: ">";
+  position: relative;
+  top: -2px;
+  margin-right: 6px;
+  transform: scale(0.8, 1);
+  display: inline-block;
 }
 
 /* pages */

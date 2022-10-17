@@ -25,6 +25,7 @@ function App() {
     // Here we return a new object (no mutation)
     setPizza({ ...pizza, toppings: newToppings });
   };
+  console.log(pizza); // toggle to see updates to state
   // Below we register the needed routes:
   return (
     <div>

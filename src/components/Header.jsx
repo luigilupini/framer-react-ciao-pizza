@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -17,7 +18,9 @@ const Header = () => {
         </svg>
       </div>
       <div className="title">
-        <h1>Ciao Pizza</h1>
+        <Link to="/">
+          <h1>Ciao Pizza</h1>
+        </Link>
       </div>
     </header>
   );
