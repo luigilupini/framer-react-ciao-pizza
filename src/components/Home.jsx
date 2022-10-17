@@ -3,15 +3,23 @@ import { Link } from "react-router-dom";
 
 import { motion } from "framer-motion";
 
-// # Keyframes: 🎞️
-// Variants also allow us to setup our `animate` prop to execute in a set/series
-// of keyframes. This animates through each value in rather a sequence.
-// https://www.framer.com/docs/animation/##keyframes
+/* # Keyframes: 🎞️
+Variants also allow us to setup our `animate` prop to execute in a set/series
+of keyframes. This animates through each value in rather a sequence.
+https://www.framer.com/docs/animation/##keyframes
+Below we are using `yoyo` within our transition that keyframes our original
+state of the element being 1 before we apply any hover scaling. We can rather
+well simply put "yoyo" back-and-forth between our state of 1 to 1.1 (x10).
+*/
 const buttonVariants = {
   hover: {
-    scale: [1, 1.1, 1, 1.1, 1, 1.1, 1], // represents keyframes :)
-    textShadow: "0px 0px 1px rgb(255,255,255)",
+    textShadow: "0px 0px 8px rgb(255,255,255)",
     boxShadow: "0px 0px 8px rgb(255,255,255)",
+    scale: 1.1,
+    transition: {
+      yoyo: 10,
+      duration: 0.3,
+    },
   },
 };
 
