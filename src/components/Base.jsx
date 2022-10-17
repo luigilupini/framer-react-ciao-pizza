@@ -19,9 +19,14 @@ const Base = ({ addBase, pizza }) => {
           let active = pizza.base === base ? "active" : "";
           // console.log(active);
           return (
-            <li key={base} onClick={() => addBase(base)}>
+            <motion.li
+              key={base}
+              onClick={() => addBase(base)}
+              whileHover={{ scale: 1.3, color: "#fbd413", originX: 0 }}
+              transition={{ type: "spring", stiffness: 120 }}
+            >
               <span className={active}>{base}</span>
-            </li>
+            </motion.li>
           );
         })}
       </ul>
@@ -37,7 +42,15 @@ const Base = ({ addBase, pizza }) => {
           transition={{ type: "spring", stiffness: 50 }}
         >
           <Link to="/toppings">
-            <button>Next</button>
+            <motion.button
+              whileHover={{
+                scale: 1.1,
+                textShadow: "0px 0px 1px rgb(255,255,255)",
+                boxShadow: "0px 0px 8px rgb(255,255,255)",
+              }}
+            >
+              Next
+            </motion.button>
           </Link>
         </motion.div>
       )}
