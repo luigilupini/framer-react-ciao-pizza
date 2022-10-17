@@ -45,11 +45,24 @@ const pathVariants = {
     transition: { duration: 2, ease: "easeInOut" },
   },
 };
+/* Applying dragConstraints: 
+Applies constraints on the permitted draggable area. It can accept an object of
+optional top, left, right, bottom values, measured in pixels. This will define a
+distance the named edge of the draggable component.
 
+Alternatively, it can accept a `ref` to another component created with React's
+`useRef` hook. This `ref` should/must be passed both to the draggable component
+dragConstraints prop, and the `ref` of the component you want as a constraint.
+*/
 const Header = () => {
   return (
     <header>
-      <div className="logo">
+      <motion.div
+        drag
+        dragConstraints={{ left: 0, top: 0, right: 0, bottom: 0 }}
+        dragElastic={0.7}
+        className="logo"
+      >
         <motion.svg
           className="pizza-svg"
           variants={svgVariants}
@@ -69,7 +82,7 @@ const Header = () => {
             d="M50 30 L50 -10 C50 -10 90 -10 90 30 Z"
           />
         </motion.svg>
-      </div>
+      </motion.div>
       <motion.div
         className="title"
         initial={{ y: -250 }}
