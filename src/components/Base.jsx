@@ -10,7 +10,7 @@ They provide the following advantages:
 1) We get to extract our initial & animate object(s) into a single outside one.
 We can then reference this outside variant, keeping our JSX code cleaner. 2) We
 can then propagate these variant(s) or changes to them, throughout the DOM tree
-resulting in cleaner code also. 3) Variants allow timing-relationships** between
+resulting in cleaner code also. 3) Variants allow timing-relationships between
 parent, and their directly/enclosed children `motion` elements.
 
 * The best benefit is the propagation down the DOM. A parent `motion` element
