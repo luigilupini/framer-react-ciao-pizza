@@ -1,5 +1,4 @@
 import { useState } from "react";
-import "./App.css";
 import { Switch, Route, useLocation } from "react-router-dom";
 
 import Header from "./components/Header";
@@ -7,6 +6,7 @@ import Home from "./components/Home";
 import Base from "./components/Base";
 import Toppings from "./components/Toppings";
 import Order from "./components/Order";
+import Model from "./components/Model";
 
 import { AnimatePresence } from "framer-motion";
 
@@ -50,8 +50,9 @@ const containerVariants = {
 function App() {
   // Component state object
   const [pizza, setPizza] = useState({ base: "", toppings: [] });
+  const [showModal, setShowModal] = useState(false);
   const location = useLocation();
-  console.log(location);
+  // console.log(location);
   // helper callback functions:
   const addBase = (base) => setPizza({ ...pizza, base });
   const addTopping = (topping) => {
@@ -67,11 +68,12 @@ function App() {
     setPizza({ ...pizza, toppings: newToppings });
   };
   console.log(pizza); // toggle to see updates to state
-  // Below we register the needed routes:
   return (
     <div>
       <Header />
+      <Model showModal={showModal} setShowModal={setShowModal} />
       <AnimatePresence exitBeforeEnter={true}>
+        {/* Below we register the needed routes: */}
         <Switch location={location} key={location.key}>
           <Route path="/" exact>
             <Home />
@@ -83,7 +85,7 @@ function App() {
             <Toppings pizza={pizza} addTopping={addTopping} />
           </Route>
           <Route path="/order" exact>
-            <Order pizza={pizza} />
+            <Order pizza={pizza} setShowModal={setShowModal} />
           </Route>
         </Switch>
       </AnimatePresence>

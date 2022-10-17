@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { motion } from "framer-motion";
 
 /* # Orchestration: 
@@ -39,7 +39,12 @@ const childVariants = {
   visible: { opacity: 1 },
 };
 
-const Order = ({ pizza }) => {
+const Order = ({ pizza, setShowModal }) => {
+  useEffect(() => {
+    setTimeout(() => {
+      setShowModal(true);
+    }, 5000);
+  }, [setShowModal]);
   return (
     <motion.div
       className="order container"
