@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 /* Introducing `variants` 🧬: 
 Use variants, which make it a bit easier to define more complex animations.
 
-They provide the following advantages:
+* They provide the following advantages:
 1) We get to extract our initial & animate object(s) into a single outside one.
 We can then reference this outside variant, keeping our JSX code cleaner. 2) We
 can then propagate these variant(s) or changes to them, throughout the DOM tree

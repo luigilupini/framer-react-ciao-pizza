@@ -7,10 +7,10 @@ gain access to extra transition props like `when`, `delayChildren`, and also the
 `staggerChildren`, that let parents orchestrate execution of child animation.
 https://www.framer.com/docs/animation/##orchestration
 
-Taking advantage of variant's "transition orchestration" feature, we use the
-`when` prop property `beforeChildren` that means our parent animation needs to
-complete before any child can continue with its own animation. Simply put, we
-run this before the children. After means, well, after the child animation.
+Taking advantage of variant's transition orchestration "timing-relationships",
+we use the `when` prop's `beforeChildren` value that means our parent animation
+needs to complete before any child can continue, with its own animation. Simply
+we run before the children. After means, well, after the child animation.
 
 Lastly we apply the `staggerChildren` prop to the parent so that it staggers the
 animation to all children elements.

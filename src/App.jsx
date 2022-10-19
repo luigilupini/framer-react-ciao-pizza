@@ -12,32 +12,39 @@ import { AnimatePresence } from "framer-motion";
 
 /* # AnimatePresence: 
 You can animate components when they're removed from the React tree. It allows
-components to animate out when unmounted. `AnimatePresence` required to enable
-`exit` animations because React lacks a lifecycle method that:
+components to animate out when unmounting. `AnimatePresence` requires a `exit`
+prop enabled for animations. Because React lacks a lifecycle method that:
+
 - Notifies components when they're going to be unmounted and...
 - Allows them to defer that unmounting until the operation/animation is complete.
 
 For more information see:
 https://www.framer.com/docs/animate-presence/
 
-Without it, you have animation when a page/component renders (mounts) from a
-the <Switch /> when it matches the url path condition. But what if we want these
-components when they (unmount) being `exit`, to animate. Well, then you have to
-wrap the Routing components that are handling those mount and unmount tasks with
-framers `AnimatePresence` component. It has the following requirements:
+It has the following requirements:
 
 - You need the child element that it wraps to be a `motion` tag.
 - You need that child element to have a `exit` prop.
-- However, an additional step for our <Switch /> component is needed
+- But additionally, and only when Routing we have an extra steps.
+- Example our <Switch /> needs to track the current `location`.
 
-We need a way for `AnimatePresence` to know when the route is going to change.
-When is it going to apply `exit` animation. To get location information you can
-use the `useLocation` hook from `react-router-dom`. Then pass these as props to
-<Switch />: `location={location}` and `key={location.key}` so that it has now
-location in a controlled state. AnimatePresence will now know when a route has
-any change occurring to perform the exit for unmounting components.
+Without it, you have animation when a page/component renders (mounts) from a the
+<Switch /> when it matches url path conditions. But what if we want components
+when they (unmount) and need to `exit` animate.
 
-- Next, apply exit variants and props to your child components like (Home).
+Well, as seen we need to then wrap the Routing components that are handling the
+mounts and unmounts tasks, with framers `AnimatePresence` component.
+
+Additionally, as highlighted we need a way for `AnimatePresence` to know when a
+route is going going to change. When is it going to apply `exit` animation. To
+get `location` state you can use the `useLocation` hook from `react-router-dom`.
+We pass these props to <Switch /> `location={location}` and `key={location.key}`
+so that it has now location in a controlled state.
+
+`AnimatePresence` will now trigger when `location` state changes meaning a route
+has changed and in turn allows `exit` to trigger the unmounting components.
+
+- Next apply `exit` variants and props to your child components like (Home).
 ```js
 const containerVariants = {
   hidden: { opacity: 0 },
@@ -67,7 +74,7 @@ function App() {
     // Here we return a new object (no mutation)
     setPizza({ ...pizza, toppings: newToppings });
   };
-  console.log(pizza); // toggle to see updates to state
+  // console.log(pizza); // toggle to see updates to state
   return (
     <div>
       <Header />
